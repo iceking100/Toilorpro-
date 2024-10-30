@@ -1,0 +1,38 @@
+document.addEventListener("DOMContentLoaded", function() {
+    function calculateZRA(expenses) {
+        const zraRate = 0.15; // Example tax rate
+        return expenses * zraRate;
+    }
+
+    function showReminder(collectionDate) {
+        const today = new Date();
+        const reminderDate1 = new Date(collectionDate);
+        reminderDate1.setDate(reminderDate1.getDate() - 2); // 2 days before
+
+        const reminderDate2 = new Date(collectionDate);
+        reminderDate2.setDate(reminderDate2.getDate() - 1); // 1 day before
+
+        if (today.toDateString() === reminderDate1.toDateString()) {
+            alert("Reminder: Customer collection is in 2 days!");
+        } else if (today.toDateString() === reminderDate2.toDateString()) {
+            alert("Reminder: Customer collection is tomorrow!");
+        }
+    }
+
+    function makePayment() {
+        alert("Redirecting to Airtel Money for payment...");
+        // Integrate Airtel Money API here
+    }
+
+    function makeBankTransfer() {
+        alert("Please transfer to the following account...");
+        // Display bank details or integrate with a payment service
+    }
+
+    function calculateAndDisplayZRA() {
+        let totalExpenses = 0; // You should add logic to sum your expenses here
+        alert('ZRA Amount: ' + calculateZRA(totalExpenses));
+    }
+
+    // Add additional form handling and logic as needed
+});
